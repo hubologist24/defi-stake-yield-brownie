@@ -25,13 +25,16 @@ networks:
     update_interval: 60
     verify: False
   kovan:
+    weth_token: "0xd0A1E359811322d97991E03f863a0C30C2cF029C"
+    fau_token: "0xFab46E002BbF0b4509813474841E0716E6730136"
+    dai_usd_price_feed: "0x777A68032a88E5A84678A77Af2CD65A7b3c0775a"
+    eth_usd_price_feed: "0x9326BFA02ADD2366b30bacB125260Af641031331"
     vrf_coordinator: "0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9"
     link_token: "0xa36085F69e2889c224210F603D836748e7dC0088"
     keyhash: "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4"
     fee: 100000000000000000
     oracle: "0xc57b33452b4f7bb189bb5afae9cc4aba1f7a4fd8"
     jobId: "d5270d1c311941d0b08bead21fea7747"
-    eth_usd_price_feed: "0x9326BFA02ADD2366b30bacB125260Af641031331"
     # Change to True if you have an Etherscan API key and want to verify
     verify: True
     update_interval: 60
@@ -68,6 +71,7 @@ networks:
   binance-fork:
     eth_usd_price_feed: "0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e"
   mainnet-fork:
+    weth_token: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
     eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
   matic-fork:
     eth_usd_price_feed: "0xF9680D99D6C9589e2a93a78A04A279e509205945"

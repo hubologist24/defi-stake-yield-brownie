@@ -7,7 +7,9 @@ from brownie import (
     MockOracle,
     VRFCoordinatorMock,
     Contract,
-    web3
+    web3,
+    MockDAI,
+    MockWeth,
 )
 import time
 
@@ -23,8 +25,11 @@ BLOCK_CONFIRMATIONS_FOR_VERIFICATION = 6
 contract_to_mock = {
     "link_token": LinkToken,
     "eth_usd_price_feed": MockV3Aggregator,
+    "dai_usd_price_feed": MockV3Aggregator,
     "vrf_coordinator": VRFCoordinatorMock,
     "oracle": MockOracle,
+    "fau_token": MockDAI,
+    "weth_token": MockWeth,
 }
 
 DECIMALS = 18
@@ -118,6 +123,16 @@ def deploy_mocks(decimals=DECIMALS, initial_value=INITIAL_VALUE):
     print(f"Deployed to {mock_oracle.address}")
     print("Mocks Deployed!")
 
+    print("Deploying Mock DAI...")
+    mock_dai = MockDAI.deploy({"from": account})
+    print(f"Deployed to {mock_dai.address}")
+    print("Mocks Deployed!")
+
+    print("Deploying Mock Oracle...")
+    mock_weth = MockWeth.deploy({"from": account})
+    print(f"Deployed to {mock_weth.address}")
+    print("Mocks Deployed!")
+
 
 def listen_for_event(brownie_contract, event, timeout=200, poll_interval=2):
     """Listen for an event to be fired from a contract.
@@ -149,4 +164,4 @@ def listen_for_event(brownie_contract, event, timeout=200, poll_interval=2):
         time.sleep(poll_interval)
         current_time = time.time()
     print("Timeout reached, no event found.")
-    return { "event": None }
+    return {"event": None}

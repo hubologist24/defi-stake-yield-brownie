@@ -1,4 +1,5 @@
 import pytest
+import web3
 from brownie import (
     accounts,
     config,
@@ -58,3 +59,8 @@ def chainlink_fee():
 @pytest.fixture
 def expiry_time():
     return 300
+
+
+@pytest.fixture
+def amount_staked():
+    return Web3.toWei("1", "ether")
